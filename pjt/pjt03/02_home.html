@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="01_nav_footer.css">
+  <link rel="stylesheet" href="02_home.css">
+  <title>Home</title>
+</head>
+<body>
+
+  <!-- 01_nav_footer.html -->
+  <!-- nav start -->
+  <nav class="navbar navbar-expand-md navbar-light bg-dark sticky-top">
+    <div class="container-fluid">
+      <a href="02_home.html"><img src="images/logo.png" alt="" style="width:250px; height:100px;"></a>
+      <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="m-0 d-md-none">
+          <li class="mx-3"><a href="02_home.html" class="fw-bold text-white text-decoration-none">Home</a></li>
+          <li class="mx-3"><a href="03_community.html" class="text-white text-decoration-none">Coummunity</a></li>
+          <li class="mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="#" class="text-white text-decoration-none">Login</a></li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse d-none d-md-flex justify-content-end" id="navbarNav">
+        <ul class="m-0 d-flex">
+          <li class="mx-3"><a href="02_home.html" class="fw-bold text-white text-decoration-none">Home</a></li>
+          <li class="mx-3"><a href="03_community.html" class="text-white text-decoration-none">Coummunity</a></li>
+          <li class="mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a href="#" class="text-white text-decoration-none">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Modal start -->
+  <form action="#">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="exampleModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Username<br>
+            <input type="text" class="border rounded my-2"><br>
+            Password<br>
+            <input type="password" class="my-2">
+            <!-- checkbox start -->
+            <div class="form-check my-3">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Default checkbox
+              </label>
+            </div>
+            <!-- checkbox end -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    <!-- Modal end -->
+  <!-- 01_nav_footer 에서 완성한 Navigation bar 코드를 붙여넣어 주세요. -->
+
+  <!-- 02_home.html -->
+  <header>
+    <!-- carousel start -->
+    <div id="carouselExampleIndicators" class="carousel slide m-3" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/header1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/header2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/header3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+    <!-- carousel end -->
+  </header>
+
+  <div class="d-flex justify-content-center">
+  <h1 class="fw-bold">Boxoffice</h1>
+  </div>
+
+  <section class="container">
+    <div class="row flex-row justify-content-center">
+      <article class="item card col-12 col-sm-3 m-2">
+          <img src="images/movie1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="fw-bold">Movie Title</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+      </article>
+      <article class="item card col-12 col-sm-3 m-2">
+        <img src="images/movie2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="fw-bold">Movie Title</p>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </article>
+      <article class="item card col-12 col-sm-3 m-2">
+        <img src="images/movie3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="fw-bold">Movie Title</p>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </article>
+      <article class="item card col-12 col-sm-3 m-2">
+          <img src="images/movie4.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="fw-bold">Movie Title</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+      </article>
+      <article class="item card col-12 col-sm-3 m-2">
+        <img src="images/movie5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="fw-bold">Movie Title</p>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </article>
+      <article class="item card col-12 col-sm-3 m-2">
+        <img src="images/movie6.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="fw-bold">Movie Title</p>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </article>
+
+    
+    
+  
+  </section>
+
+  <!-- 01_nav_footer.html -->
+    <!-- footer start -->
+    <footer class="sticky-bottom d-flex justify-content-center">
+      <div style="color:gray;">Web-bootstrap PJT, by Jihye Lee</div>
+    </footer>
+    <!-- footer end -->
+  <!-- 01_nav_footer 에서 완성한 Footer 코드를 붙여넣어 주세요. -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
