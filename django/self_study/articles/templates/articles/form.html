@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if request.resolver_match.url_name == 'create' %}
+    <div class="fs-3 text-center bg-info p-3">create</div>
+  {% endif %}
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit">
+  </form>
+
+  <form action="" method="POST"></form>
+{% endblock content %}
