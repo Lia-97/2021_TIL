@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'posts:create' %}">작성하기</a>
+  <h1>게시물 목록</h1>
+  {% comment %} 테이블 시작 {% endcomment %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+      <tr>
+        <th scope="row">{{ post.pk }}</th>
+        <td><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></td>
+        <td>{{ post.user }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% comment %} 테이블 끝 {% endcomment %}
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'posts:index' %}">목록으로</a>
+  <p>제목 : {{ post.title }}</p>
+  <p>작성자 : {{post.user}}</p>
+  <p>작성일 : {{post.created_at}}</p>
+  <p>수정일 : {{ post.updated_at }}</p>
+  <p>내용 : {{ post.content }}</p>
+  <form action="{% url 'posts:update' post.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="수정">
+  </form>
+  <form action="{% url 'posts:delete' post.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제">
+  </form>
+{% endblock content %}

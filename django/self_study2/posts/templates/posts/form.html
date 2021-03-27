@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if request.resolver_match.url_name == 'create' %}
+  <h1>게시물 작성하기</h1>
+  {% elif request.resolver_match.url_name == 'update' %}
+  <h1>게시물 수정하기</h1>
+  {% endif %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form }}
+    </table>
+    <input type="submit" value="작성">
+  </form>
+{% endblock content %}

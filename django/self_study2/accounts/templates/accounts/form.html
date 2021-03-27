@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% comment %} 로그인/회원가입 등 상단 표시 {% endcomment %}
+  {% if request.resolver_match.url_name == "login" %}
+    <h1>로그인</h1>
+  {% else %}
+    <h1>회원가입</h1>
+  {% endif %}
+{% comment %} 상단 끝 {% endcomment %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit">
+  </form>
+
+{% endblock content %}

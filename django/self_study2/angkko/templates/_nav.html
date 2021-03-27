@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'posts:main' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'posts:index' %}">게시물</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">추가예정</a>
+        </li>
+        {% comment %} 회원정보 시작 {% endcomment %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            계정
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if request.user.is_authenticated %}
+              <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
+            {% else %}
+              <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a></li>
+              <li><a class="dropdown-item" href="{% url 'accounts:signup' %}">Signup</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        {% comment %} 회원정보 끝 {% endcomment %}
+      </ul>
+    </div>
+  </div>
+</nav>
