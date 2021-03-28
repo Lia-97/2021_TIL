@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 from django.views.decorators.http import require_POST,require_http_methods
 from django.contrib.auth.decorators import login_required
 
@@ -40,9 +40,12 @@ def create(request):
 
 def detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-
+    comment_form = CommentForm
+    comments = post.comment_set.all()
     context = {
         'post': post,
+        'comment_form': comment_form,
+        'comments': comments
     }
 
     return render(request, 'posts/detail.html', context)
@@ -69,5 +72,25 @@ def update(request, pk):
         form = PostForm(instance=post)
     context = {
         'form': form,
+        'post': post,
     }
     return render(request, 'posts/form.html', context)
+
+
+@require_POST
+def comment(request, pk):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, pk=pk)
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.user = request.user
+            comment.save()
+            return redirect('posts:detail', post.pk)
+        context = {
+            'comment_form': comment_form,
+            'post':post,
+        }
+        return render(request, 'posts/detail.html', context)
+    return redirect('accounts:login')

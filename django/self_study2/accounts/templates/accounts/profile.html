@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4>{{ user_info.username }}님의 프로필입니다.</h4>
+  <a href="{% url 'accounts:update' %}"><input type="submit" value="회원정보 수정"></a>
+  <a href="{% url 'accounts:password' %}"><input type="submit" value="비밀번호 변경"></a>
+  <h4>댓글 단 글</h4>
+  {% for post in user_info.post_set.all %}
+  {{ post.title }}
+  {% endfor %}
+  {% endblock content %}
