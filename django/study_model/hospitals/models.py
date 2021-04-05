@@ -10,6 +10,7 @@ class Doctor(models.Model):
 
 class Patient(models.Model):
     name = models.TextField()
+    doctor = models.ManyToManyField(Doctor, related_name='patients')
 
     def __str__(self):
         return f'{self.pk}번 환자 {self.name}'

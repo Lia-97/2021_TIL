@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -44,8 +44,8 @@ def logout(request):
 
 
 @login_required
-def profile(request):
-    user_info = request.user
+def profile(request, user_pk):
+    user_info = get_object_or_404(get_user_model(), pk=user_pk)
 
     context = {
         'user_info': user_info,
@@ -82,3 +82,15 @@ def password(request):
         'form': form,
     }
     return render(request, 'accounts/form.html', context)
+
+
+def follow(request, user_pk):
+    you = get_object_or_404(get_user_model(), pk=user_pk)
+    me = request.user
+
+    if you != me:
+        if me in you.followers.all():
+            you.followers.remove(me)
+        else:
+            you.followers.add(me)
+    return redirect('accounts:profile', user_pk)

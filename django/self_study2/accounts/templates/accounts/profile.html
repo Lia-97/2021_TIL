@@ -2,6 +2,20 @@
 
 {% block content %}
   <h4>{{ user_info.username }}님의 프로필입니다.</h4>
+
+  {% if request.user != user_info %}
+  <div>
+    <form action="{% url 'accounts:follow' user_info.pk %}" method="POST">
+      {% csrf_token %}
+      {% if request.user in user_info.followers.all %}
+        <button>언팔로우</button>
+      {% else %}
+        <button>팔로우</button>
+      {% endif %}
+    </form>
+  </div>
+  {% endif %}
+
   <a href="{% url 'accounts:update' %}"><input type="submit" value="회원정보 수정"></a>
   <a href="{% url 'accounts:password' %}"><input type="submit" value="비밀번호 변경"></a>
   <h4>댓글 단 글</h4>
