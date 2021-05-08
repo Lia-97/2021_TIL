@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMSG">뒤집기</button>
+  </div>
+
+  <div id="app2">
+    <p>{{ message }}</p>
+    <input type="text" v-model="message">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'nice'
+      },
+      methods: {
+        reverseMSG: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    })
+
+    const app2 = new Vue({
+      el: '#app2',
+      data: {
+        message: '입력해보세요!'
+      }
+    })
+  </script>
+</body>
+</html>

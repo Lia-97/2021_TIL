@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-if="seen">이제 나를 볼 수 있어요!</p>
+  </div>
+
+  <div id="app2">
+    <ol>
+      <li v-for="todo in todoList">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        seen: true
+      }
+    })
+
+    const app2 = new Vue({
+      el: '#app2',
+      data: {
+        todoList: [
+          {text: '설거지'},
+          {text: '청소'},
+          {text: '빨래'}
+        ]
+      }
+    })
+  </script>
+</body>
+</html>
